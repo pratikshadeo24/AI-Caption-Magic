@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Caption Magic</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Caption Magic</h1>
+        <p>Upload an image and let the AI generate a captivating caption for you!</p>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="upload-section">
+                <label for="file" class="custom-file-upload">
+                    Choose an Image
+                </label>
+                <input type="file" name="file" id="file" required>
+            </div>
+            <button type="submit">Generate Caption</button>
+        </form>
+        
+        {% if caption %}
+        <div class="result">
+            <h2>Your Image & Caption</h2>
+            <img src="{{ image_url }}" alt="Uploaded Image" class="uploaded-image">
+            <p>{{ caption }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
